@@ -23,16 +23,16 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SaveCommentRequest $request)
+    public function store(Request $request, Comment $comment)
     {
         //
-        $comment = new Comment();
+      
 
         $comment->name = $request->name;
         $comment->email = $request->email;
         $comment->email_verified_at = $request->email_verified_at;
         $comment->comment = $request->comment;
-        $comment->save($request->validated()); //! guardar y realizar validación
+        $comment->save();
 
         return $comment;
     }
