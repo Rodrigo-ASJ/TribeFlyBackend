@@ -24,7 +24,8 @@ class SaveCommentRequest extends FormRequest
         return [
             'name' => ['required'],
             'email' => ['required'],
-            'email_verified_at' =>  [''],
+            'comment' => ['required'],
+
         ];
     }
 }

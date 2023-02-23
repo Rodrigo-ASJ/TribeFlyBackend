@@ -28,11 +28,11 @@ class CommentController extends Controller
         //
         $comment = new Comment();
 
-        $comment->name = $comment->name;
-        $comment->email = $comment->email;
-        $comment->email_verified_at = $comment->email_verified_at;
-        $comment->comment = $comment->comment;
-        $comment->save($comment->validated()); //! guardar y realizar validación
+        $comment->name = $request->name;
+        $comment->email = $request->email;
+        $comment->email_verified_at = $request->email_verified_at;
+        $comment->comment = $request->comment;
+        $comment->save($request->validated()); //! guardar y realizar validación
 
         return $comment;
     }
@@ -52,7 +52,7 @@ class CommentController extends Controller
     public function update(SaveCommentRequest $request, Comment $comment)
     {
         //
-          $comment->update($comment->validated());
+          $comment->update($request->validated());
           return $comment;
     }
 

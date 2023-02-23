@@ -11,11 +11,11 @@ class Comment extends Model
     protected $fillable = [
         "name",
         "email",
+        "comment",
+        'email_verified_at',
         "created_at",
         "updated_at"];
 
-        protected $casts = [
-            'email_verified_at' => 'datetime',
-        ];
+ 
 
 }

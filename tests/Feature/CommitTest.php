@@ -56,25 +56,21 @@ class CommitTest extends TestCase
           /** @test */
     public function test_a_comment_can_be_updated()
     {
-        $comment = Comment::factory()->create();
+        $comments = Comment::factory()->create();
         $data = [
             'name' => 'newName',
             'email' => 'exapleName@example.com',
-            'email_verified_at' => '2023-02-23T13:03:16.000000Z',
-            'comment' => 'quiero viajar a .....',
+            'comment' => 'New quiero viajar a texto texto a lugar'
         ];
 
-        $response = $this->put("api/comments/{$comment->id}", $data);
+        $response = $this->put("api/comments/{$comments->id}", $data);
         $response->assertStatus(200);
 
-        $updatedComment = Comment::find($comment->id);
+        $updatedComments = Comment::find($comments->id);
 
-        $this->assertEquals($data['name'], $updatedComment->name);
-
-        $this->assertEquals($data['email'], $updatedComment->email);
-
-        $this->assertEquals($data['comment'], $updatedComment->comment);
-
+        $this->assertEquals($data['name'], $updatedComments->name);
+        $this->assertEquals($data['email'], $updatedComments->email);
+        $this->assertEquals($data['comment'], $updatedComments->comment);
 
     }
 
